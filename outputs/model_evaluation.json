@@ -1,0 +1,38 @@
+[
+  {
+    "model": "Logistic Regression",
+    "precision_fraud": 0.3622,
+    "recall_fraud": 0.8994,
+    "f1_fraud": 0.5164,
+    "roc_auc": 0.9891,
+    "pr_auc": 0.8951,
+    "confusion_matrix": [
+      [
+        66845,
+        1039
+      ],
+      [
+        66,
+        590
+      ]
+    ]
+  },
+  {
+    "model": "Gradient Boosting",
+    "precision_fraud": 0.9043,
+    "recall_fraud": 0.9649,
+    "f1_fraud": 0.9336,
+    "roc_auc": 0.9999,
+    "pr_auc": 0.9886,
+    "confusion_matrix": [
+      [
+        67817,
+        67
+      ],
+      [
+        23,
+        633
+      ]
+    ]
+  }
+]

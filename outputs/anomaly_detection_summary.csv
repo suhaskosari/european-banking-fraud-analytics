@@ -1,0 +1,3 @@
+method,flagged,tp,fp,fn,precision,recall,f1
+zscore_amount,10735,233,10502,936,0.0217,0.1993,0.0391
+isolation_forest,2742,860,1882,309,0.3136,0.7357,0.4398

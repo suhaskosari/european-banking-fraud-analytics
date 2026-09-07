@@ -1,0 +1,87 @@
+[
+  {
+    "test": "Mann-Whitney U: transaction amount, fraud vs. legitimate",
+    "h0": "Fraudulent and legitimate transactions have the same amount distribution.",
+    "h1": "Fraudulent transactions have a different amount distribution.",
+    "statistic": 95857585.5,
+    "p_value": 4.625446858082261e-123,
+    "significant_at_0.05": true,
+    "effect_size": 0.3992,
+    "effect_label": "rank-biserial r",
+    "extra": {
+      "median_fraud": 3.01,
+      "median_legit": 61.33,
+      "n_fraud": 1169,
+      "n_legit": 272985
+    }
+  },
+  {
+    "test": "Chi-square test of independence: fraud vs. transaction country",
+    "h0": "Fraud incidence is independent of transaction country.",
+    "h1": "Fraud incidence depends on transaction country.",
+    "statistic": 20.5303,
+    "p_value": 0.004531236830624025,
+    "significant_at_0.05": true,
+    "effect_size": 0.0087,
+    "effect_label": "Cramer's V",
+    "extra": {
+      "fraud_rate_by_country": {
+        "SE": 0.00547,
+        "PL": 0.0048,
+        "IE": 0.00449,
+        "NL": 0.00444,
+        "ES": 0.00438,
+        "IT": 0.00421,
+        "DE": 0.00421,
+        "FR": 0.00332
+      }
+    }
+  },
+  {
+    "test": "Chi-square test of independence: fraud vs. channel",
+    "h0": "Fraud incidence is independent of transaction channel.",
+    "h1": "Fraud incidence depends on transaction channel.",
+    "statistic": 1773.1788,
+    "p_value": 0.0,
+    "significant_at_0.05": true,
+    "effect_size": 0.0804,
+    "effect_label": "Cramer's V",
+    "extra": {
+      "fraud_rate_by_channel": {
+        "card_not_present": 0.01231,
+        "atm_withdrawal": 0.00437,
+        "wire_transfer": 0.00323,
+        "online": 0.0004,
+        "card_present": 0.0
+      }
+    }
+  },
+  {
+    "test": "One-sided two-proportion z-test: cross-border vs. domestic fraud rate",
+    "h0": "Cross-border and domestic transactions have equal fraud rates.",
+    "h1": "Cross-border transactions have a higher fraud rate.",
+    "statistic": 22.4754,
+    "p_value": 0.0,
+    "significant_at_0.05": true,
+    "effect_size": 0.087,
+    "effect_label": "Cohen's h",
+    "extra": {
+      "fraud_rate_cross_border": 0.00759,
+      "fraud_rate_domestic": 0.00191
+    }
+  },
+  {
+    "test": "Mann-Whitney U (one-sided): 1h transaction velocity, fraud vs. legitimate",
+    "h0": "Fraud and legitimate transactions have equal 1-hour velocity.",
+    "h1": "Fraud transactions have higher 1-hour velocity.",
+    "statistic": 257726169.0,
+    "p_value": 0.0,
+    "significant_at_0.05": true,
+    "effect_size": -0.6152,
+    "effect_label": "rank-biserial r",
+    "extra": {
+      "mean_velocity_fraud": 3.8939264328485885,
+      "mean_velocity_legit": 0.007505906917962525
+    }
+  }
+]

@@ -1,0 +1,19 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+.env
+.DS_Store
+Thumbs.db
+
+# Raw and cleaned data are regenerated locally by the pipeline scripts
+# (python/generate_data.py, python/etl_clean_transform.py, python/feature_engineering.py)
+data/raw/
+data/processed/
+
+# Large generated outputs -- regenerate via the Quickstart in README.md.
+# Small summaries, charts, and *_sample.csv previews are kept tracked.
+outputs/scored_transactions.csv
+outputs/transactions_pseudonymized.csv
+outputs/.pseudonymization_key.txt
+powerbi/exports/fct_transactions.csv

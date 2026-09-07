@@ -1,0 +1,451 @@
+merchant_id,merchant_name,mcc,mcc_category,country,base_risk_multiplier
+MERCH00000,Direct 0000 GmbH,5967,Direct Marketing / Subscriptions,PL,1.4
+MERCH00001,Electronics 0001 SARL,5732,Electronics,FR,1.6
+MERCH00002,Jewelry 0002 SA,5944,Jewelry,IT,3.0
+MERCH00003,Restaurants 0003 SRL,5812,Restaurants,IT,1.1
+MERCH00004,Grocery 0004 BV,5411,Grocery Stores,ES,0.9
+MERCH00005,Direct 0005 AB,5967,Direct Marketing / Subscriptions,FR,1.4
+MERCH00006,Restaurants 0006 Sp. z o.o.,5812,Restaurants,DE,1.1
+MERCH00007,Grocery 0007 Ltd,5411,Grocery Stores,NL,0.9
+MERCH00008,Jewelry 0008 Group,5944,Jewelry,ES,3.0
+MERCH00009,Crypto 0009 & Co,6051,Crypto / Money Transfer,IT,3.5
+MERCH00010,Grocery 0010 GmbH,5411,Grocery Stores,DE,0.9
+MERCH00011,Airlines 0011 SARL,4511,Airlines,FR,2.4
+MERCH00012,Grocery 0012 SA,5411,Grocery Stores,NL,0.9
+MERCH00013,Fuel 0013 SRL,5541,Fuel Stations,DE,0.8
+MERCH00014,Crypto 0014 BV,6051,Crypto / Money Transfer,ES,3.5
+MERCH00015,Jewelry 0015 AB,5944,Jewelry,FR,3.0
+MERCH00016,Electronics 0016 Sp. z o.o.,5732,Electronics,IE,1.6
+MERCH00017,Airlines 0017 Ltd,4511,Airlines,DE,2.4
+MERCH00018,Direct 0018 Group,5967,Direct Marketing / Subscriptions,ES,1.4
+MERCH00019,Utilities 0019 & Co,4900,Utilities,IT,0.3
+MERCH00020,Electronics 0020 GmbH,5732,Electronics,IE,1.6
+MERCH00021,Fuel 0021 SARL,5541,Fuel Stations,IT,0.8
+MERCH00022,Misc 0022 SA,5999,Misc Retail,ES,1.0
+MERCH00023,Airlines 0023 SRL,4511,Airlines,DE,2.4
+MERCH00024,Clothing 0024 BV,5651,Clothing Stores,FR,1.0
+MERCH00025,Jewelry 0025 AB,5944,Jewelry,ES,3.0
+MERCH00026,Grocery 0026 Sp. z o.o.,5411,Grocery Stores,IT,0.9
+MERCH00027,Utilities 0027 Ltd,4900,Utilities,NL,0.3
+MERCH00028,Hotels 0028 Group,7011,Hotels,IT,2.0
+MERCH00029,Jewelry 0029 & Co,5944,Jewelry,DE,3.0
+MERCH00030,Electronics 0030 GmbH,5732,Electronics,DE,1.6
+MERCH00031,Airlines 0031 SARL,4511,Airlines,DE,2.4
+MERCH00032,Restaurants 0032 SA,5812,Restaurants,IT,1.1
+MERCH00033,Grocery 0033 SRL,5411,Grocery Stores,DE,0.9
+MERCH00034,Electronics 0034 BV,5732,Electronics,DE,1.6
+MERCH00035,Clothing 0035 AB,5651,Clothing Stores,SE,1.0
+MERCH00036,Fuel 0036 Sp. z o.o.,5541,Fuel Stations,FR,0.8
+MERCH00037,Misc 0037 Ltd,5999,Misc Retail,ES,1.0
+MERCH00038,Electronics 0038 Group,5732,Electronics,DE,1.6
+MERCH00039,Direct 0039 & Co,5967,Direct Marketing / Subscriptions,FR,1.4
+MERCH00040,Grocery 0040 GmbH,5411,Grocery Stores,SE,0.9
+MERCH00041,Restaurants 0041 SARL,5812,Restaurants,DE,1.1
+MERCH00042,Grocery 0042 SA,5411,Grocery Stores,IT,0.9
+MERCH00043,Electronics 0043 SRL,5732,Electronics,FR,1.6
+MERCH00044,Fuel 0044 BV,5541,Fuel Stations,SE,0.8
+MERCH00045,Jewelry 0045 AB,5944,Jewelry,DE,3.0
+MERCH00046,Jewelry 0046 Sp. z o.o.,5944,Jewelry,NL,3.0
+MERCH00047,Misc 0047 Ltd,5999,Misc Retail,IE,1.0
+MERCH00048,Clothing 0048 Group,5651,Clothing Stores,FR,1.0
+MERCH00049,Utilities 0049 & Co,4900,Utilities,ES,0.3
+MERCH00050,Fuel 0050 GmbH,5541,Fuel Stations,IT,0.8
+MERCH00051,Hotels 0051 SARL,7011,Hotels,DE,2.0
+MERCH00052,Airlines 0052 SA,4511,Airlines,PL,2.4
+MERCH00053,Restaurants 0053 SRL,5812,Restaurants,NL,1.1
+MERCH00054,Hotels 0054 BV,7011,Hotels,FR,2.0
+MERCH00055,Utilities 0055 AB,4900,Utilities,FR,0.3
+MERCH00056,Airlines 0056 Sp. z o.o.,4511,Airlines,IT,2.4
+MERCH00057,Direct 0057 Ltd,5967,Direct Marketing / Subscriptions,DE,1.4
+MERCH00058,Jewelry 0058 Group,5944,Jewelry,DE,3.0
+MERCH00059,Fuel 0059 & Co,5541,Fuel Stations,FR,0.8
+MERCH00060,Crypto 0060 GmbH,6051,Crypto / Money Transfer,IT,3.5
+MERCH00061,Hotels 0061 SARL,7011,Hotels,ES,2.0
+MERCH00062,Clothing 0062 SA,5651,Clothing Stores,SE,1.0
+MERCH00063,Clothing 0063 SRL,5651,Clothing Stores,IE,1.0
+MERCH00064,Utilities 0064 BV,4900,Utilities,SE,0.3
+MERCH00065,Restaurants 0065 AB,5812,Restaurants,DE,1.1
+MERCH00066,Misc 0066 Sp. z o.o.,5999,Misc Retail,IE,1.0
+MERCH00067,Fuel 0067 Ltd,5541,Fuel Stations,FR,0.8
+MERCH00068,Grocery 0068 Group,5411,Grocery Stores,ES,0.9
+MERCH00069,Grocery 0069 & Co,5411,Grocery Stores,FR,0.9
+MERCH00070,Utilities 0070 GmbH,4900,Utilities,SE,0.3
+MERCH00071,Jewelry 0071 SARL,5944,Jewelry,FR,3.0
+MERCH00072,Grocery 0072 SA,5411,Grocery Stores,DE,0.9
+MERCH00073,Crypto 0073 SRL,6051,Crypto / Money Transfer,NL,3.5
+MERCH00074,Electronics 0074 BV,5732,Electronics,NL,1.6
+MERCH00075,Fuel 0075 AB,5541,Fuel Stations,DE,0.8
+MERCH00076,Utilities 0076 Sp. z o.o.,4900,Utilities,IE,0.3
+MERCH00077,Grocery 0077 Ltd,5411,Grocery Stores,IE,0.9
+MERCH00078,Fuel 0078 Group,5541,Fuel Stations,ES,0.8
+MERCH00079,Grocery 0079 & Co,5411,Grocery Stores,NL,0.9
+MERCH00080,Electronics 0080 GmbH,5732,Electronics,ES,1.6
+MERCH00081,Misc 0081 SARL,5999,Misc Retail,FR,1.0
+MERCH00082,Restaurants 0082 SA,5812,Restaurants,ES,1.1
+MERCH00083,Direct 0083 SRL,5967,Direct Marketing / Subscriptions,NL,1.4
+MERCH00084,Grocery 0084 BV,5411,Grocery Stores,FR,0.9
+MERCH00085,Restaurants 0085 AB,5812,Restaurants,IT,1.1
+MERCH00086,Hotels 0086 Sp. z o.o.,7011,Hotels,DE,2.0
+MERCH00087,Jewelry 0087 Ltd,5944,Jewelry,PL,3.0
+MERCH00088,Misc 0088 Group,5999,Misc Retail,IT,1.0
+MERCH00089,Direct 0089 & Co,5967,Direct Marketing / Subscriptions,FR,1.4
+MERCH00090,Restaurants 0090 GmbH,5812,Restaurants,PL,1.1
+MERCH00091,Restaurants 0091 SARL,5812,Restaurants,NL,1.1
+MERCH00092,Hotels 0092 SA,7011,Hotels,ES,2.0
+MERCH00093,Grocery 0093 SRL,5411,Grocery Stores,DE,0.9
+MERCH00094,Direct 0094 BV,5967,Direct Marketing / Subscriptions,IE,1.4
+MERCH00095,Hotels 0095 AB,7011,Hotels,DE,2.0
+MERCH00096,Electronics 0096 Sp. z o.o.,5732,Electronics,IE,1.6
+MERCH00097,Utilities 0097 Ltd,4900,Utilities,ES,0.3
+MERCH00098,Utilities 0098 Group,4900,Utilities,ES,0.3
+MERCH00099,Utilities 0099 & Co,4900,Utilities,FR,0.3
+MERCH00100,Grocery 0100 GmbH,5411,Grocery Stores,IE,0.9
+MERCH00101,Clothing 0101 SARL,5651,Clothing Stores,IE,1.0
+MERCH00102,Jewelry 0102 SA,5944,Jewelry,FR,3.0
+MERCH00103,Airlines 0103 SRL,4511,Airlines,IT,2.4
+MERCH00104,Airlines 0104 BV,4511,Airlines,NL,2.4
+MERCH00105,Jewelry 0105 AB,5944,Jewelry,SE,3.0
+MERCH00106,Fuel 0106 Sp. z o.o.,5541,Fuel Stations,IE,0.8
+MERCH00107,Jewelry 0107 Ltd,5944,Jewelry,IT,3.0
+MERCH00108,Hotels 0108 Group,7011,Hotels,SE,2.0
+MERCH00109,Utilities 0109 & Co,4900,Utilities,DE,0.3
+MERCH00110,Direct 0110 GmbH,5967,Direct Marketing / Subscriptions,DE,1.4
+MERCH00111,Utilities 0111 SARL,4900,Utilities,IT,0.3
+MERCH00112,Grocery 0112 SA,5411,Grocery Stores,SE,0.9
+MERCH00113,Crypto 0113 SRL,6051,Crypto / Money Transfer,ES,3.5
+MERCH00114,Grocery 0114 BV,5411,Grocery Stores,ES,0.9
+MERCH00115,Jewelry 0115 AB,5944,Jewelry,DE,3.0
+MERCH00116,Electronics 0116 Sp. z o.o.,5732,Electronics,NL,1.6
+MERCH00117,Utilities 0117 Ltd,4900,Utilities,ES,0.3
+MERCH00118,Jewelry 0118 Group,5944,Jewelry,NL,3.0
+MERCH00119,Misc 0119 & Co,5999,Misc Retail,DE,1.0
+MERCH00120,Direct 0120 GmbH,5967,Direct Marketing / Subscriptions,IT,1.4
+MERCH00121,Hotels 0121 SARL,7011,Hotels,FR,2.0
+MERCH00122,Fuel 0122 SA,5541,Fuel Stations,DE,0.8
+MERCH00123,Grocery 0123 SRL,5411,Grocery Stores,ES,0.9
+MERCH00124,Direct 0124 BV,5967,Direct Marketing / Subscriptions,PL,1.4
+MERCH00125,Restaurants 0125 AB,5812,Restaurants,DE,1.1
+MERCH00126,Crypto 0126 Sp. z o.o.,6051,Crypto / Money Transfer,PL,3.5
+MERCH00127,Utilities 0127 Ltd,4900,Utilities,DE,0.3
+MERCH00128,Electronics 0128 Group,5732,Electronics,DE,1.6
+MERCH00129,Grocery 0129 & Co,5411,Grocery Stores,SE,0.9
+MERCH00130,Hotels 0130 GmbH,7011,Hotels,IE,2.0
+MERCH00131,Misc 0131 SARL,5999,Misc Retail,FR,1.0
+MERCH00132,Restaurants 0132 SA,5812,Restaurants,ES,1.1
+MERCH00133,Utilities 0133 SRL,4900,Utilities,DE,0.3
+MERCH00134,Airlines 0134 BV,4511,Airlines,IE,2.4
+MERCH00135,Grocery 0135 AB,5411,Grocery Stores,FR,0.9
+MERCH00136,Crypto 0136 Sp. z o.o.,6051,Crypto / Money Transfer,DE,3.5
+MERCH00137,Grocery 0137 Ltd,5411,Grocery Stores,FR,0.9
+MERCH00138,Grocery 0138 Group,5411,Grocery Stores,FR,0.9
+MERCH00139,Misc 0139 & Co,5999,Misc Retail,SE,1.0
+MERCH00140,Airlines 0140 GmbH,4511,Airlines,FR,2.4
+MERCH00141,Grocery 0141 SARL,5411,Grocery Stores,FR,0.9
+MERCH00142,Airlines 0142 SA,4511,Airlines,IT,2.4
+MERCH00143,Fuel 0143 SRL,5541,Fuel Stations,DE,0.8
+MERCH00144,Fuel 0144 BV,5541,Fuel Stations,DE,0.8
+MERCH00145,Electronics 0145 AB,5732,Electronics,DE,1.6
+MERCH00146,Electronics 0146 Sp. z o.o.,5732,Electronics,PL,1.6
+MERCH00147,Airlines 0147 Ltd,4511,Airlines,ES,2.4
+MERCH00148,Misc 0148 Group,5999,Misc Retail,FR,1.0
+MERCH00149,Direct 0149 & Co,5967,Direct Marketing / Subscriptions,FR,1.4
+MERCH00150,Airlines 0150 GmbH,4511,Airlines,FR,2.4
+MERCH00151,Fuel 0151 SARL,5541,Fuel Stations,FR,0.8
+MERCH00152,Misc 0152 SA,5999,Misc Retail,FR,1.0
+MERCH00153,Electronics 0153 SRL,5732,Electronics,FR,1.6
+MERCH00154,Utilities 0154 BV,4900,Utilities,DE,0.3
+MERCH00155,Hotels 0155 AB,7011,Hotels,DE,2.0
+MERCH00156,Jewelry 0156 Sp. z o.o.,5944,Jewelry,PL,3.0
+MERCH00157,Grocery 0157 Ltd,5411,Grocery Stores,IE,0.9
+MERCH00158,Jewelry 0158 Group,5944,Jewelry,DE,3.0
+MERCH00159,Electronics 0159 & Co,5732,Electronics,ES,1.6
+MERCH00160,Hotels 0160 GmbH,7011,Hotels,NL,2.0
+MERCH00161,Clothing 0161 SARL,5651,Clothing Stores,SE,1.0
+MERCH00162,Misc 0162 SA,5999,Misc Retail,FR,1.0
+MERCH00163,Fuel 0163 SRL,5541,Fuel Stations,IT,0.8
+MERCH00164,Misc 0164 BV,5999,Misc Retail,SE,1.0
+MERCH00165,Clothing 0165 AB,5651,Clothing Stores,FR,1.0
+MERCH00166,Grocery 0166 Sp. z o.o.,5411,Grocery Stores,DE,0.9
+MERCH00167,Airlines 0167 Ltd,4511,Airlines,DE,2.4
+MERCH00168,Fuel 0168 Group,5541,Fuel Stations,IT,0.8
+MERCH00169,Direct 0169 & Co,5967,Direct Marketing / Subscriptions,NL,1.4
+MERCH00170,Restaurants 0170 GmbH,5812,Restaurants,IT,1.1
+MERCH00171,Electronics 0171 SARL,5732,Electronics,IT,1.6
+MERCH00172,Grocery 0172 SA,5411,Grocery Stores,IT,0.9
+MERCH00173,Fuel 0173 SRL,5541,Fuel Stations,ES,0.8
+MERCH00174,Direct 0174 BV,5967,Direct Marketing / Subscriptions,FR,1.4
+MERCH00175,Electronics 0175 AB,5732,Electronics,DE,1.6
+MERCH00176,Restaurants 0176 Sp. z o.o.,5812,Restaurants,PL,1.1
+MERCH00177,Utilities 0177 Ltd,4900,Utilities,NL,0.3
+MERCH00178,Clothing 0178 Group,5651,Clothing Stores,IT,1.0
+MERCH00179,Fuel 0179 & Co,5541,Fuel Stations,ES,0.8
+MERCH00180,Misc 0180 GmbH,5999,Misc Retail,SE,1.0
+MERCH00181,Fuel 0181 SARL,5541,Fuel Stations,IE,0.8
+MERCH00182,Restaurants 0182 SA,5812,Restaurants,ES,1.1
+MERCH00183,Fuel 0183 SRL,5541,Fuel Stations,PL,0.8
+MERCH00184,Jewelry 0184 BV,5944,Jewelry,DE,3.0
+MERCH00185,Jewelry 0185 AB,5944,Jewelry,ES,3.0
+MERCH00186,Clothing 0186 Sp. z o.o.,5651,Clothing Stores,DE,1.0
+MERCH00187,Direct 0187 Ltd,5967,Direct Marketing / Subscriptions,IT,1.4
+MERCH00188,Electronics 0188 Group,5732,Electronics,ES,1.6
+MERCH00189,Crypto 0189 & Co,6051,Crypto / Money Transfer,SE,3.5
+MERCH00190,Misc 0190 GmbH,5999,Misc Retail,PL,1.0
+MERCH00191,Misc 0191 SARL,5999,Misc Retail,PL,1.0
+MERCH00192,Restaurants 0192 SA,5812,Restaurants,IT,1.1
+MERCH00193,Jewelry 0193 SRL,5944,Jewelry,ES,3.0
+MERCH00194,Electronics 0194 BV,5732,Electronics,DE,1.6
+MERCH00195,Crypto 0195 AB,6051,Crypto / Money Transfer,FR,3.5
+MERCH00196,Grocery 0196 Sp. z o.o.,5411,Grocery Stores,FR,0.9
+MERCH00197,Utilities 0197 Ltd,4900,Utilities,FR,0.3
+MERCH00198,Direct 0198 Group,5967,Direct Marketing / Subscriptions,IE,1.4
+MERCH00199,Jewelry 0199 & Co,5944,Jewelry,IT,3.0
+MERCH00200,Misc 0200 GmbH,5999,Misc Retail,PL,1.0
+MERCH00201,Crypto 0201 SARL,6051,Crypto / Money Transfer,ES,3.5
+MERCH00202,Fuel 0202 SA,5541,Fuel Stations,DE,0.8
+MERCH00203,Grocery 0203 SRL,5411,Grocery Stores,FR,0.9
+MERCH00204,Restaurants 0204 BV,5812,Restaurants,NL,1.1
+MERCH00205,Misc 0205 AB,5999,Misc Retail,IT,1.0
+MERCH00206,Airlines 0206 Sp. z o.o.,4511,Airlines,IE,2.4
+MERCH00207,Restaurants 0207 Ltd,5812,Restaurants,PL,1.1
+MERCH00208,Crypto 0208 Group,6051,Crypto / Money Transfer,DE,3.5
+MERCH00209,Electronics 0209 & Co,5732,Electronics,SE,1.6
+MERCH00210,Hotels 0210 GmbH,7011,Hotels,IT,2.0
+MERCH00211,Jewelry 0211 SARL,5944,Jewelry,FR,3.0
+MERCH00212,Clothing 0212 SA,5651,Clothing Stores,NL,1.0
+MERCH00213,Airlines 0213 SRL,4511,Airlines,ES,2.4
+MERCH00214,Crypto 0214 BV,6051,Crypto / Money Transfer,IE,3.5
+MERCH00215,Misc 0215 AB,5999,Misc Retail,DE,1.0
+MERCH00216,Fuel 0216 Sp. z o.o.,5541,Fuel Stations,FR,0.8
+MERCH00217,Crypto 0217 Ltd,6051,Crypto / Money Transfer,DE,3.5
+MERCH00218,Fuel 0218 Group,5541,Fuel Stations,DE,0.8
+MERCH00219,Utilities 0219 & Co,4900,Utilities,NL,0.3
+MERCH00220,Clothing 0220 GmbH,5651,Clothing Stores,IE,1.0
+MERCH00221,Direct 0221 SARL,5967,Direct Marketing / Subscriptions,DE,1.4
+MERCH00222,Hotels 0222 SA,7011,Hotels,SE,2.0
+MERCH00223,Electronics 0223 SRL,5732,Electronics,NL,1.6
+MERCH00224,Grocery 0224 BV,5411,Grocery Stores,ES,0.9
+MERCH00225,Hotels 0225 AB,7011,Hotels,DE,2.0
+MERCH00226,Airlines 0226 Sp. z o.o.,4511,Airlines,ES,2.4
+MERCH00227,Grocery 0227 Ltd,5411,Grocery Stores,ES,0.9
+MERCH00228,Direct 0228 Group,5967,Direct Marketing / Subscriptions,SE,1.4
+MERCH00229,Restaurants 0229 & Co,5812,Restaurants,ES,1.1
+MERCH00230,Jewelry 0230 GmbH,5944,Jewelry,PL,3.0
+MERCH00231,Jewelry 0231 SARL,5944,Jewelry,ES,3.0
+MERCH00232,Airlines 0232 SA,4511,Airlines,FR,2.4
+MERCH00233,Fuel 0233 SRL,5541,Fuel Stations,PL,0.8
+MERCH00234,Crypto 0234 BV,6051,Crypto / Money Transfer,IE,3.5
+MERCH00235,Clothing 0235 AB,5651,Clothing Stores,NL,1.0
+MERCH00236,Electronics 0236 Sp. z o.o.,5732,Electronics,FR,1.6
+MERCH00237,Airlines 0237 Ltd,4511,Airlines,PL,2.4
+MERCH00238,Utilities 0238 Group,4900,Utilities,DE,0.3
+MERCH00239,Clothing 0239 & Co,5651,Clothing Stores,NL,1.0
+MERCH00240,Airlines 0240 GmbH,4511,Airlines,NL,2.4
+MERCH00241,Crypto 0241 SARL,6051,Crypto / Money Transfer,DE,3.5
+MERCH00242,Electronics 0242 SA,5732,Electronics,ES,1.6
+MERCH00243,Jewelry 0243 SRL,5944,Jewelry,SE,3.0
+MERCH00244,Restaurants 0244 BV,5812,Restaurants,FR,1.1
+MERCH00245,Misc 0245 AB,5999,Misc Retail,IE,1.0
+MERCH00246,Misc 0246 Sp. z o.o.,5999,Misc Retail,DE,1.0
+MERCH00247,Jewelry 0247 Ltd,5944,Jewelry,ES,3.0
+MERCH00248,Direct 0248 Group,5967,Direct Marketing / Subscriptions,ES,1.4
+MERCH00249,Restaurants 0249 & Co,5812,Restaurants,FR,1.1
+MERCH00250,Misc 0250 GmbH,5999,Misc Retail,DE,1.0
+MERCH00251,Fuel 0251 SARL,5541,Fuel Stations,PL,0.8
+MERCH00252,Clothing 0252 SA,5651,Clothing Stores,DE,1.0
+MERCH00253,Airlines 0253 SRL,4511,Airlines,IT,2.4
+MERCH00254,Crypto 0254 BV,6051,Crypto / Money Transfer,FR,3.5
+MERCH00255,Direct 0255 AB,5967,Direct Marketing / Subscriptions,PL,1.4
+MERCH00256,Direct 0256 Sp. z o.o.,5967,Direct Marketing / Subscriptions,FR,1.4
+MERCH00257,Utilities 0257 Ltd,4900,Utilities,NL,0.3
+MERCH00258,Fuel 0258 Group,5541,Fuel Stations,DE,0.8
+MERCH00259,Fuel 0259 & Co,5541,Fuel Stations,ES,0.8
+MERCH00260,Crypto 0260 GmbH,6051,Crypto / Money Transfer,FR,3.5
+MERCH00261,Utilities 0261 SARL,4900,Utilities,PL,0.3
+MERCH00262,Hotels 0262 SA,7011,Hotels,DE,2.0
+MERCH00263,Clothing 0263 SRL,5651,Clothing Stores,ES,1.0
+MERCH00264,Hotels 0264 BV,7011,Hotels,PL,2.0
+MERCH00265,Electronics 0265 AB,5732,Electronics,FR,1.6
+MERCH00266,Electronics 0266 Sp. z o.o.,5732,Electronics,IT,1.6
+MERCH00267,Hotels 0267 Ltd,7011,Hotels,NL,2.0
+MERCH00268,Fuel 0268 Group,5541,Fuel Stations,IE,0.8
+MERCH00269,Restaurants 0269 & Co,5812,Restaurants,IT,1.1
+MERCH00270,Restaurants 0270 GmbH,5812,Restaurants,DE,1.1
+MERCH00271,Utilities 0271 SARL,4900,Utilities,DE,0.3
+MERCH00272,Electronics 0272 SA,5732,Electronics,DE,1.6
+MERCH00273,Utilities 0273 SRL,4900,Utilities,FR,0.3
+MERCH00274,Grocery 0274 BV,5411,Grocery Stores,DE,0.9
+MERCH00275,Hotels 0275 AB,7011,Hotels,NL,2.0
+MERCH00276,Misc 0276 Sp. z o.o.,5999,Misc Retail,SE,1.0
+MERCH00277,Misc 0277 Ltd,5999,Misc Retail,DE,1.0
+MERCH00278,Airlines 0278 Group,4511,Airlines,FR,2.4
+MERCH00279,Clothing 0279 & Co,5651,Clothing Stores,NL,1.0
+MERCH00280,Crypto 0280 GmbH,6051,Crypto / Money Transfer,DE,3.5
+MERCH00281,Restaurants 0281 SARL,5812,Restaurants,DE,1.1
+MERCH00282,Jewelry 0282 SA,5944,Jewelry,SE,3.0
+MERCH00283,Direct 0283 SRL,5967,Direct Marketing / Subscriptions,FR,1.4
+MERCH00284,Utilities 0284 BV,4900,Utilities,FR,0.3
+MERCH00285,Jewelry 0285 AB,5944,Jewelry,PL,3.0
+MERCH00286,Fuel 0286 Sp. z o.o.,5541,Fuel Stations,DE,0.8
+MERCH00287,Crypto 0287 Ltd,6051,Crypto / Money Transfer,PL,3.5
+MERCH00288,Crypto 0288 Group,6051,Crypto / Money Transfer,FR,3.5
+MERCH00289,Clothing 0289 & Co,5651,Clothing Stores,DE,1.0
+MERCH00290,Fuel 0290 GmbH,5541,Fuel Stations,PL,0.8
+MERCH00291,Electronics 0291 SARL,5732,Electronics,ES,1.6
+MERCH00292,Fuel 0292 SA,5541,Fuel Stations,IE,0.8
+MERCH00293,Crypto 0293 SRL,6051,Crypto / Money Transfer,PL,3.5
+MERCH00294,Grocery 0294 BV,5411,Grocery Stores,NL,0.9
+MERCH00295,Fuel 0295 AB,5541,Fuel Stations,ES,0.8
+MERCH00296,Jewelry 0296 Sp. z o.o.,5944,Jewelry,NL,3.0
+MERCH00297,Grocery 0297 Ltd,5411,Grocery Stores,DE,0.9
+MERCH00298,Direct 0298 Group,5967,Direct Marketing / Subscriptions,SE,1.4
+MERCH00299,Utilities 0299 & Co,4900,Utilities,FR,0.3
+MERCH00300,Misc 0300 GmbH,5999,Misc Retail,FR,1.0
+MERCH00301,Fuel 0301 SARL,5541,Fuel Stations,DE,0.8
+MERCH00302,Utilities 0302 SA,4900,Utilities,PL,0.3
+MERCH00303,Misc 0303 SRL,5999,Misc Retail,IT,1.0
+MERCH00304,Fuel 0304 BV,5541,Fuel Stations,NL,0.8
+MERCH00305,Electronics 0305 AB,5732,Electronics,DE,1.6
+MERCH00306,Electronics 0306 Sp. z o.o.,5732,Electronics,ES,1.6
+MERCH00307,Misc 0307 Ltd,5999,Misc Retail,IE,1.0
+MERCH00308,Clothing 0308 Group,5651,Clothing Stores,FR,1.0
+MERCH00309,Fuel 0309 & Co,5541,Fuel Stations,IE,0.8
+MERCH00310,Clothing 0310 GmbH,5651,Clothing Stores,FR,1.0
+MERCH00311,Hotels 0311 SARL,7011,Hotels,NL,2.0
+MERCH00312,Airlines 0312 SA,4511,Airlines,IE,2.4
+MERCH00313,Electronics 0313 SRL,5732,Electronics,PL,1.6
+MERCH00314,Grocery 0314 BV,5411,Grocery Stores,NL,0.9
+MERCH00315,Jewelry 0315 AB,5944,Jewelry,IT,3.0
+MERCH00316,Direct 0316 Sp. z o.o.,5967,Direct Marketing / Subscriptions,DE,1.4
+MERCH00317,Clothing 0317 Ltd,5651,Clothing Stores,IE,1.0
+MERCH00318,Direct 0318 Group,5967,Direct Marketing / Subscriptions,NL,1.4
+MERCH00319,Utilities 0319 & Co,4900,Utilities,IE,0.3
+MERCH00320,Utilities 0320 GmbH,4900,Utilities,PL,0.3
+MERCH00321,Hotels 0321 SARL,7011,Hotels,IE,2.0
+MERCH00322,Direct 0322 SA,5967,Direct Marketing / Subscriptions,FR,1.4
+MERCH00323,Grocery 0323 SRL,5411,Grocery Stores,FR,0.9
+MERCH00324,Restaurants 0324 BV,5812,Restaurants,IT,1.1
+MERCH00325,Utilities 0325 AB,4900,Utilities,FR,0.3
+MERCH00326,Misc 0326 Sp. z o.o.,5999,Misc Retail,NL,1.0
+MERCH00327,Utilities 0327 Ltd,4900,Utilities,DE,0.3
+MERCH00328,Restaurants 0328 Group,5812,Restaurants,FR,1.1
+MERCH00329,Jewelry 0329 & Co,5944,Jewelry,FR,3.0
+MERCH00330,Fuel 0330 GmbH,5541,Fuel Stations,DE,0.8
+MERCH00331,Misc 0331 SARL,5999,Misc Retail,ES,1.0
+MERCH00332,Electronics 0332 SA,5732,Electronics,SE,1.6
+MERCH00333,Direct 0333 SRL,5967,Direct Marketing / Subscriptions,IT,1.4
+MERCH00334,Utilities 0334 BV,4900,Utilities,IT,0.3
+MERCH00335,Misc 0335 AB,5999,Misc Retail,SE,1.0
+MERCH00336,Restaurants 0336 Sp. z o.o.,5812,Restaurants,PL,1.1
+MERCH00337,Jewelry 0337 Ltd,5944,Jewelry,ES,3.0
+MERCH00338,Electronics 0338 Group,5732,Electronics,IT,1.6
+MERCH00339,Restaurants 0339 & Co,5812,Restaurants,IE,1.1
+MERCH00340,Hotels 0340 GmbH,7011,Hotels,DE,2.0
+MERCH00341,Jewelry 0341 SARL,5944,Jewelry,PL,3.0
+MERCH00342,Grocery 0342 SA,5411,Grocery Stores,SE,0.9
+MERCH00343,Restaurants 0343 SRL,5812,Restaurants,FR,1.1
+MERCH00344,Misc 0344 BV,5999,Misc Retail,SE,1.0
+MERCH00345,Airlines 0345 AB,4511,Airlines,ES,2.4
+MERCH00346,Misc 0346 Sp. z o.o.,5999,Misc Retail,DE,1.0
+MERCH00347,Hotels 0347 Ltd,7011,Hotels,IT,2.0
+MERCH00348,Restaurants 0348 Group,5812,Restaurants,SE,1.1
+MERCH00349,Restaurants 0349 & Co,5812,Restaurants,FR,1.1
+MERCH00350,Utilities 0350 GmbH,4900,Utilities,SE,0.3
+MERCH00351,Airlines 0351 SARL,4511,Airlines,ES,2.4
+MERCH00352,Hotels 0352 SA,7011,Hotels,SE,2.0
+MERCH00353,Utilities 0353 SRL,4900,Utilities,IT,0.3
+MERCH00354,Restaurants 0354 BV,5812,Restaurants,DE,1.1
+MERCH00355,Restaurants 0355 AB,5812,Restaurants,IT,1.1
+MERCH00356,Misc 0356 Sp. z o.o.,5999,Misc Retail,ES,1.0
+MERCH00357,Airlines 0357 Ltd,4511,Airlines,FR,2.4
+MERCH00358,Direct 0358 Group,5967,Direct Marketing / Subscriptions,FR,1.4
+MERCH00359,Utilities 0359 & Co,4900,Utilities,SE,0.3
+MERCH00360,Grocery 0360 GmbH,5411,Grocery Stores,DE,0.9
+MERCH00361,Grocery 0361 SARL,5411,Grocery Stores,PL,0.9
+MERCH00362,Grocery 0362 SA,5411,Grocery Stores,FR,0.9
+MERCH00363,Electronics 0363 SRL,5732,Electronics,PL,1.6
+MERCH00364,Utilities 0364 BV,4900,Utilities,SE,0.3
+MERCH00365,Crypto 0365 AB,6051,Crypto / Money Transfer,FR,3.5
+MERCH00366,Grocery 0366 Sp. z o.o.,5411,Grocery Stores,NL,0.9
+MERCH00367,Misc 0367 Ltd,5999,Misc Retail,ES,1.0
+MERCH00368,Grocery 0368 Group,5411,Grocery Stores,PL,0.9
+MERCH00369,Restaurants 0369 & Co,5812,Restaurants,ES,1.1
+MERCH00370,Hotels 0370 GmbH,7011,Hotels,PL,2.0
+MERCH00371,Grocery 0371 SARL,5411,Grocery Stores,NL,0.9
+MERCH00372,Electronics 0372 SA,5732,Electronics,DE,1.6
+MERCH00373,Clothing 0373 SRL,5651,Clothing Stores,FR,1.0
+MERCH00374,Direct 0374 BV,5967,Direct Marketing / Subscriptions,DE,1.4
+MERCH00375,Jewelry 0375 AB,5944,Jewelry,DE,3.0
+MERCH00376,Utilities 0376 Sp. z o.o.,4900,Utilities,IE,0.3
+MERCH00377,Airlines 0377 Ltd,4511,Airlines,FR,2.4
+MERCH00378,Grocery 0378 Group,5411,Grocery Stores,ES,0.9
+MERCH00379,Direct 0379 & Co,5967,Direct Marketing / Subscriptions,DE,1.4
+MERCH00380,Utilities 0380 GmbH,4900,Utilities,IE,0.3
+MERCH00381,Utilities 0381 SARL,4900,Utilities,PL,0.3
+MERCH00382,Grocery 0382 SA,5411,Grocery Stores,NL,0.9
+MERCH00383,Clothing 0383 SRL,5651,Clothing Stores,IT,1.0
+MERCH00384,Restaurants 0384 BV,5812,Restaurants,FR,1.1
+MERCH00385,Misc 0385 AB,5999,Misc Retail,ES,1.0
+MERCH00386,Fuel 0386 Sp. z o.o.,5541,Fuel Stations,IT,0.8
+MERCH00387,Jewelry 0387 Ltd,5944,Jewelry,PL,3.0
+MERCH00388,Fuel 0388 Group,5541,Fuel Stations,FR,0.8
+MERCH00389,Restaurants 0389 & Co,5812,Restaurants,ES,1.1
+MERCH00390,Misc 0390 GmbH,5999,Misc Retail,FR,1.0
+MERCH00391,Clothing 0391 SARL,5651,Clothing Stores,DE,1.0
+MERCH00392,Jewelry 0392 SA,5944,Jewelry,IT,3.0
+MERCH00393,Misc 0393 SRL,5999,Misc Retail,DE,1.0
+MERCH00394,Clothing 0394 BV,5651,Clothing Stores,ES,1.0
+MERCH00395,Crypto 0395 AB,6051,Crypto / Money Transfer,PL,3.5
+MERCH00396,Direct 0396 Sp. z o.o.,5967,Direct Marketing / Subscriptions,DE,1.4
+MERCH00397,Utilities 0397 Ltd,4900,Utilities,FR,0.3
+MERCH00398,Jewelry 0398 Group,5944,Jewelry,DE,3.0
+MERCH00399,Restaurants 0399 & Co,5812,Restaurants,DE,1.1
+MERCH00400,Electronics 0400 GmbH,5732,Electronics,FR,1.6
+MERCH00401,Clothing 0401 SARL,5651,Clothing Stores,ES,1.0
+MERCH00402,Utilities 0402 SA,4900,Utilities,IE,0.3
+MERCH00403,Electronics 0403 SRL,5732,Electronics,IT,1.6
+MERCH00404,Clothing 0404 BV,5651,Clothing Stores,ES,1.0
+MERCH00405,Jewelry 0405 AB,5944,Jewelry,DE,3.0
+MERCH00406,Crypto 0406 Sp. z o.o.,6051,Crypto / Money Transfer,SE,3.5
+MERCH00407,Jewelry 0407 Ltd,5944,Jewelry,IE,3.0
+MERCH00408,Clothing 0408 Group,5651,Clothing Stores,SE,1.0
+MERCH00409,Airlines 0409 & Co,4511,Airlines,NL,2.4
+MERCH00410,Airlines 0410 GmbH,4511,Airlines,IT,2.4
+MERCH00411,Jewelry 0411 SARL,5944,Jewelry,FR,3.0
+MERCH00412,Hotels 0412 SA,7011,Hotels,ES,2.0
+MERCH00413,Jewelry 0413 SRL,5944,Jewelry,ES,3.0
+MERCH00414,Hotels 0414 BV,7011,Hotels,DE,2.0
+MERCH00415,Airlines 0415 AB,4511,Airlines,FR,2.4
+MERCH00416,Grocery 0416 Sp. z o.o.,5411,Grocery Stores,FR,0.9
+MERCH00417,Direct 0417 Ltd,5967,Direct Marketing / Subscriptions,DE,1.4
+MERCH00418,Clothing 0418 Group,5651,Clothing Stores,ES,1.0
+MERCH00419,Crypto 0419 & Co,6051,Crypto / Money Transfer,ES,3.5
+MERCH00420,Fuel 0420 GmbH,5541,Fuel Stations,SE,0.8
+MERCH00421,Restaurants 0421 SARL,5812,Restaurants,FR,1.1
+MERCH00422,Hotels 0422 SA,7011,Hotels,SE,2.0
+MERCH00423,Crypto 0423 SRL,6051,Crypto / Money Transfer,NL,3.5
+MERCH00424,Grocery 0424 BV,5411,Grocery Stores,PL,0.9
+MERCH00425,Utilities 0425 AB,4900,Utilities,PL,0.3
+MERCH00426,Crypto 0426 Sp. z o.o.,6051,Crypto / Money Transfer,FR,3.5
+MERCH00427,Grocery 0427 Ltd,5411,Grocery Stores,IT,0.9
+MERCH00428,Utilities 0428 Group,4900,Utilities,FR,0.3
+MERCH00429,Utilities 0429 & Co,4900,Utilities,ES,0.3
+MERCH00430,Hotels 0430 GmbH,7011,Hotels,NL,2.0
+MERCH00431,Hotels 0431 SARL,7011,Hotels,ES,2.0
+MERCH00432,Grocery 0432 SA,5411,Grocery Stores,PL,0.9
+MERCH00433,Electronics 0433 SRL,5732,Electronics,IE,1.6
+MERCH00434,Crypto 0434 BV,6051,Crypto / Money Transfer,FR,3.5
+MERCH00435,Clothing 0435 AB,5651,Clothing Stores,PL,1.0
+MERCH00436,Grocery 0436 Sp. z o.o.,5411,Grocery Stores,SE,0.9
+MERCH00437,Hotels 0437 Ltd,7011,Hotels,IT,2.0
+MERCH00438,Jewelry 0438 Group,5944,Jewelry,ES,3.0
+MERCH00439,Hotels 0439 & Co,7011,Hotels,IT,2.0
+MERCH00440,Grocery 0440 GmbH,5411,Grocery Stores,PL,0.9
+MERCH00441,Grocery 0441 SARL,5411,Grocery Stores,NL,0.9
+MERCH00442,Electronics 0442 SA,5732,Electronics,IT,1.6
+MERCH00443,Electronics 0443 SRL,5732,Electronics,IT,1.6
+MERCH00444,Airlines 0444 BV,4511,Airlines,FR,2.4
+MERCH00445,Misc 0445 AB,5999,Misc Retail,SE,1.0
+MERCH00446,Fuel 0446 Sp. z o.o.,5541,Fuel Stations,FR,0.8
+MERCH00447,Jewelry 0447 Ltd,5944,Jewelry,ES,3.0
+MERCH00448,Clothing 0448 Group,5651,Clothing Stores,IE,1.0
+MERCH00449,Grocery 0449 & Co,5411,Grocery Stores,ES,0.9
