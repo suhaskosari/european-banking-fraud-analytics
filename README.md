@@ -1,5 +1,7 @@
 # European Banking Transaction & Fraud Analytics Platform
 
+**[Live dashboard →](https://suhaskosari.github.io/european-banking-fraud-analytics/)**
+
 An end-to-end fraud-analytics platform for a multi-country European retail bank: a Python/SQL data pipeline, behavioural risk-indicator feature engineering, statistical hypothesis testing, unsupervised anomaly detection, a supervised fraud-risk classifier, GDPR-aware pseudonymization, and Power BI dashboards on top.
 
 Built as a portfolio project on realistic **synthetic** data (no real customer or transaction data is used) covering 8 European markets, 18 months of transactions, and four deliberately injected fraud typologies -- card-testing, account takeover, merchant collusion, and mule accounts -- plus the kind of messiness (duplicate rows, mixed date formats, missing values, sign errors) a real core-banking export has, so the cleaning, testing, and detection layers have real work to do.
@@ -42,6 +44,7 @@ european-banking-fraud-analytics/
 │   ├── DAX_measures.md             # full DAX measure library
 │   └── exports/                    # CSVs ready for Power BI import (pseudonymized layer)
 ├── docs/
+│   ├── index.html                  # live dashboard (GitHub Pages) -- KPIs, charts, findings, GDPR summary
 │   ├── architecture.md             # pipeline diagram, design rationale, fraud typologies simulated
 │   ├── gdpr_governance.md          # lawful basis, minimization, pseudonymization, access control, DPIA
 │   └── sample_insights.md          # real generated output from a full pipeline run

@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Fraud Watch EU — European Banking Fraud Analytics</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A synthetic-data fraud-analytics platform for European banking: risk features, hypothesis testing, anomaly detection, an ML fraud classifier, and GDPR-aware governance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: dark;
+    --bg:            #0d0d0d;
+    --surface:       #1a1a19;
+    --surface-2:     #212120;
+    --text-primary:  #ffffff;
+    --text-secondary:#c3c2b7;
+    --text-muted:    #898781;
+    --grid:          #2c2c2a;
+    --baseline:      #383835;
+    --border:        rgba(255,255,255,0.10);
+    --accent:        #3987e5;
+    --accent-wash:   rgba(57,135,229,0.14);
+    --series-1:      #3987e5; /* blue   */
+    --series-2:      #d95926; /* orange */
+    --series-3:      #199e70; /* aqua   */
+    --series-4:      #c98500; /* yellow */
+    --series-5:      #d55181; /* magenta*/
+    --good:          #0ca30c;
+    --warning:       #fab219;
+    --serious:       #ec835a;
+    --critical:      #d03b3b;
+    --track:         rgba(255,255,255,0.06);
+  }
+  :root[data-theme="light"] {
+    color-scheme: light;
+    --bg:            #f9f9f7;
+    --surface:       #fcfcfb;
+    --surface-2:     #f2f1ec;
+    --text-primary:  #0b0b0b;
+    --text-secondary:#52514e;
+    --text-muted:    #898781;
+    --grid:          #e1e0d9;
+    --baseline:      #c3c2b7;
+    --border:        rgba(11,11,11,0.10);
+    --accent:        #2a78d6;
+    --accent-wash:   rgba(42,120,214,0.09);
+    --series-1:      #2a78d6;
+    --series-2:      #eb6834;
+    --series-3:      #1baf7a;
+    --series-4:      #eda100;
+    --series-5:      #e87ba4;
+    --good:          #0ca30c;
+    --warning:       #fab219;
+    --serious:       #ec835a;
+    --critical:      #d03b3b;
+    --track:         rgba(11,11,11,0.05);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .mono { font-family: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace; }
+  .tabular { font-variant-numeric: tabular-nums; }
+  h1, h2, h3 { text-wrap: balance; font-weight: 600; margin: 0; }
+  a { color: var(--accent); }
+  svg text { font-family: "IBM Plex Mono", ui-monospace, monospace; fill: var(--text-secondary); }
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding-inline: 20px; }
+
+  /* ---------- Nav ---------- */
+  .nav {
+    position: sticky; top: 0; z-index: 20;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    display: flex; align-items: center; gap: 14px;
+    padding-block: 12px;
+  }
+  .brand { display: flex; align-items: center; gap: 9px; font-weight: 600; letter-spacing: 0.01em; white-space: nowrap; }
+  .brand-mark {
+    width: 20px; height: 20px; border-radius: 5px;
+    background: linear-gradient(135deg, var(--series-1), var(--series-3));
+    flex: none;
+  }
+  .nav-spacer { flex: 1; }
+  .nav-links { display: flex; align-items: center; gap: 16px; }
+  .nav-links a.textlink { color: var(--text-secondary); text-decoration: none; font-size: 13.5px; }
+  .nav-links a.textlink:hover { color: var(--text-primary); }
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 7px 13px; border-radius: 7px;
+    background: var(--surface-2); border: 1px solid var(--border);
+    color: var(--text-primary); text-decoration: none; font-size: 13px; font-weight: 500;
+    cursor: pointer;
+  }
+  .btn:hover { border-color: var(--accent); }
+  .theme-toggle {
+    width: 32px; height: 32px; padding: 0; justify-content: center;
+    background: var(--surface-2); border: 1px solid var(--border); border-radius: 7px;
+    color: var(--text-secondary); cursor: pointer; font-size: 14px;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero { padding-block: 46px 30px; border-bottom: 1px solid var(--border); }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-family: "IBM Plex Mono", monospace; font-size: 12px; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 14px;
+  }
+  .eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--good); box-shadow: 0 0 0 3px var(--accent-wash); }
+  .hero h1 { font-size: clamp(28px, 4.2vw, 42px); line-height: 1.12; max-width: 18ch; }
+  .hero p.lead { color: var(--text-secondary); max-width: 62ch; margin-top: 16px; font-size: 16px; }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 20px; }
+  .tag {
+    font-family: "IBM Plex Mono", monospace; font-size: 11.5px; padding: 4px 9px;
+    border: 1px solid var(--border); border-radius: 5px; color: var(--text-secondary);
+    background: var(--surface);
+  }
+
+  /* ---------- KPI strip ---------- */
+  .kpi-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1px; background: var(--border);
+    border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+    margin-top: 30px;
+  }
+  .kpi { background: var(--surface); padding: 16px 18px; }
+  .kpi-label { font-size: 11.5px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+  .kpi-value { font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 25px; margin-top: 6px; }
+  .kpi-sub { font-size: 12px; color: var(--text-secondary); margin-top: 3px; }
+  .kpi-value.accent { color: var(--accent); }
+  .kpi-value.good { color: var(--good); }
+
+  /* ---------- Sections ---------- */
+  section { padding-block: 46px; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 22px; }
+  .section-head h2 { font-size: 22px; }
+  .section-head .num { font-family: "IBM Plex Mono", monospace; color: var(--accent); font-size: 13px; margin-right: 10px; }
+  .section-cap { color: var(--text-secondary); font-size: 13.5px; max-width: 56ch; }
+
+  .panel-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .panel-grid.thirds { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 860px) { .panel-grid, .panel-grid.thirds { grid-template-columns: 1fr; } }
+
+  .panel {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 20px 20px 16px;
+  }
+  .panel-title { font-size: 14px; font-weight: 600; }
+  .panel-caption { font-size: 12px; color: var(--text-muted); margin-top: 3px; margin-bottom: 14px; }
+  .panel svg { display: block; width: 100%; height: auto; }
+
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 12px; font-size: 12px; color: var(--text-secondary); }
+  .legend-item { display: flex; align-items: center; gap: 6px; }
+  .legend-swatch { width: 10px; height: 10px; border-radius: 3px; flex: none; }
+
+  .bar-track { fill: var(--track); }
+  .bar-1 { fill: var(--series-1); }
+  .bar-2 { fill: var(--series-2); }
+  .bar-3 { fill: var(--series-3); }
+  .bar-1:hover, .bar-2:hover, .bar-3:hover { opacity: 0.82; }
+  .chart-label { font-size: 11.5px; fill: var(--text-secondary); }
+  .chart-value { font-size: 11.5px; fill: var(--text-primary); font-weight: 600; }
+  .axis-line { stroke: var(--baseline); stroke-width: 1; }
+  .gridline { stroke: var(--grid); stroke-width: 1; }
+  .line-path { fill: none; stroke: var(--series-1); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .area-path { fill: var(--series-1); opacity: 0.10; }
+  .line-dot { fill: var(--surface); stroke: var(--series-1); stroke-width: 2; }
+  .line-dot:hover { stroke-width: 3; }
+
+  /* ---------- Pipeline ---------- */
+  .pipeline { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
+  @media (max-width: 900px) { .pipeline { grid-template-columns: repeat(2, 1fr); } }
+  .pstep {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 14px 14px 12px; position: relative;
+  }
+  .pstep .pnum {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--accent);
+    background: var(--accent-wash); display: inline-block; padding: 1px 7px; border-radius: 5px; margin-bottom: 9px;
+  }
+  .pstep h3 { font-size: 13.5px; }
+  .pstep p { font-size: 12px; color: var(--text-secondary); margin: 5px 0 0; }
+  .pstep code { font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--text-muted); }
+
+  /* ---------- Findings cards ---------- */
+  .finding {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 16px 18px; display: flex; flex-direction: column; gap: 8px;
+  }
+  .finding-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .finding-name { font-size: 13px; font-weight: 600; }
+  .pill {
+    font-family: "IBM Plex Mono", monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.03em;
+    padding: 3px 8px; border-radius: 20px; white-space: nowrap;
+  }
+  .pill-reject { background: rgba(12,163,12,0.14); color: var(--good); }
+  .finding-hyp { font-size: 12px; color: var(--text-secondary); }
+  .finding-hyp b { color: var(--text-primary); font-weight: 600; }
+  .finding-stat { font-family: "IBM Plex Mono", monospace; font-size: 11.5px; color: var(--text-muted); margin-top: 2px; }
+
+  /* ---------- Governance ---------- */
+  .gov-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 22px; align-items: start; }
+  @media (max-width: 860px) { .gov-grid { grid-template-columns: 1fr; } }
+  .gov-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+  .gov-list li { display: flex; gap: 12px; }
+  .gov-check {
+    flex: none; width: 20px; height: 20px; border-radius: 50%; margin-top: 1px;
+    background: rgba(12,163,12,0.14); color: var(--good); display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700;
+  }
+  .gov-list b { display: block; font-size: 13.5px; }
+  .gov-list span { font-size: 12.5px; color: var(--text-secondary); }
+  .gov-badge-panel {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px;
+  }
+  .gov-badge-row { display: flex; align-items: center; gap: 10px; padding-block: 10px; border-bottom: 1px dashed var(--border); }
+  .gov-badge-row:last-child { border-bottom: none; }
+  .gov-badge-row .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--good); flex: none; }
+  .gov-badge-row .k { font-size: 12.5px; color: var(--text-secondary); flex: 1; }
+  .gov-badge-row .v { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--text-primary); }
+
+  /* ---------- Confusion matrix ---------- */
+  .cm-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 4px; }
+  .cm-cell { border-radius: 8px; padding: 12px 14px; border: 1px solid var(--border); }
+  .cm-cell .cm-v { font-family: "IBM Plex Mono", monospace; font-size: 20px; font-weight: 700; }
+  .cm-cell .cm-k { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+  .cm-tn { background: var(--accent-wash); }
+  .cm-tp { background: rgba(12,163,12,0.12); }
+  .cm-tp .cm-v { color: var(--good); }
+  .cm-tn .cm-v { color: var(--accent); }
+  .cm-fp, .cm-fn { background: rgba(250,178,25,0.10); }
+  .cm-fp .cm-v, .cm-fn .cm-v { color: var(--warning); }
+
+  /* ---------- Footer ---------- */
+  footer { padding-block: 34px 50px; }
+  .footer-row { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .footer-links { display: flex; gap: 18px; }
+  .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 13px; }
+  .footer-links a:hover { color: var(--accent); }
+  .footer-note { color: var(--text-muted); font-size: 12px; margin-top: 14px; max-width: 70ch; }
+
+  @media (max-width: 640px) {
+    .hero { padding-block: 34px 24px; }
+    section { padding-block: 34px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <div class="wrap nav-inner">
+    <div class="brand"><span class="brand-mark"></span>Fraud Watch EU</div>
+    <div class="nav-spacer"></div>
+    <div class="nav-links">
+      <a class="textlink" href="#model">Model</a>
+      <a class="textlink" href="#findings">Findings</a>
+      <a class="textlink" href="#governance">GDPR</a>
+      <a class="btn" href="https://github.com/suhaskosari/european-banking-fraud-analytics" target="_blank" rel="noopener">View on GitHub ↗</a>
+      <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle theme">◐</button>
+    </div>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Synthetic data · portfolio project</div>
+    <h1>Catching fraud across 8&nbsp;European markets, one transaction at a time.</h1>
+    <p class="lead">An end-to-end fraud-analytics platform: behavioural risk features, statistical hypothesis testing, unsupervised anomaly detection, a supervised fraud classifier, and GDPR-aware pseudonymization — built on realistic synthetic transaction data so every number on this page came out of a real pipeline run.</p>
+    <div class="tag-row" id="tagRow"></div>
+
+    <div class="kpi-grid" id="kpiGrid"></div>
+  </div>
+</div>
+
+<section id="pipeline">
+  <div class="wrap">
+    <div class="section-head">
+      <div><h2><span class="num">01</span>Pipeline</h2></div>
+      <div class="section-cap">Six stages, each a standalone script, run in order against the same growing transaction table.</div>
+    </div>
+    <div class="pipeline" id="pipelineGrid"></div>
+  </div>
+</section>
+
+<section id="risk">
+  <div class="wrap">
+    <div class="section-head">
+      <div><h2><span class="num">02</span>Where the risk concentrates</h2></div>
+      <div class="section-cap">Fraud rate by transaction country and channel, and the 18-month trend across the full synthetic window.</div>
+    </div>
+    <div class="panel-grid">
+      <div class="panel">
+        <div class="panel-title">Fraud rate by transaction country</div>
+        <div class="panel-caption">% of transactions flagged fraudulent, sorted descending</div>
+        <svg id="chartCountry"></svg>
+      </div>
+      <div class="panel">
+        <div class="panel-title">Fraud rate by channel</div>
+        <div class="panel-caption">Card-not-present transactions carry the highest exposure</div>
+        <svg id="chartChannel"></svg>
+      </div>
+    </div>
+    <div class="panel" style="margin-top:18px;">
+      <div class="panel-title">Monthly fraud rate — Apr 2024 to Sep 2025</div>
+      <div class="panel-caption">18-month synthetic generation window · hover a point for the exact rate</div>
+      <svg id="chartTrend"></svg>
+    </div>
+  </div>
+</section>
+
+<section id="model">
+  <div class="wrap">
+    <div class="section-head">
+      <div><h2><span class="num">03</span>Model performance</h2></div>
+      <div class="section-cap">Logistic Regression (explainable baseline) vs. Gradient Boosting, trained on a strict time-based split — the model never sees the future.</div>
+    </div>
+    <div class="panel-grid">
+      <div class="panel">
+        <div class="panel-title">Precision / Recall / F1 / ROC-AUC / PR-AUC</div>
+        <div class="panel-caption">Fraud class only, at the default 0.5 threshold</div>
+        <svg id="chartModel"></svg>
+        <div class="legend" id="legendModel"></div>
+      </div>
+      <div class="panel">
+        <div class="panel-title">Gradient Boosting confusion matrix</div>
+        <div class="panel-caption">Test window: 68,540 transactions, 656 confirmed fraud</div>
+        <div class="cm-grid" id="cmGrid"></div>
+      </div>
+    </div>
+
+    <div class="section-head" style="margin-top:38px;">
+      <div><h2 style="font-size:18px;"><span class="num">03.1</span>Unsupervised anomaly detection</h2></div>
+      <div class="section-cap">Same fraud label, used only to score — not to train. Multivariate detection beats a single amount threshold.</div>
+    </div>
+    <div class="panel">
+      <div class="panel-title">Per-customer z-score vs. Isolation Forest</div>
+      <div class="panel-caption">Precision / Recall / F1, evaluated against confirmed fraud labels</div>
+      <svg id="chartAnomaly"></svg>
+      <div class="legend" id="legendAnomaly"></div>
+    </div>
+  </div>
+</section>
+
+<section id="findings">
+  <div class="wrap">
+    <div class="section-head">
+      <div><h2><span class="num">04</span>Statistical findings</h2></div>
+      <div class="section-cap">Five hypothesis tests, each with an explicit H0/H1 and effect size — significance and magnitude reported separately.</div>
+    </div>
+    <div class="panel-grid thirds" id="findingsGrid"></div>
+  </div>
+</section>
+
+<section id="governance">
+  <div class="wrap">
+    <div class="section-head">
+      <div><h2><span class="num">05</span>GDPR &amp; data governance</h2></div>
+      <div class="section-cap">The BI layer never sees a direct identifier — pseudonymization runs before export, not after.</div>
+    </div>
+    <div class="gov-grid">
+      <ul class="gov-list">
+        <li><div class="gov-check">✓</div><div><b>Data minimization</b><span>Full name and email are dropped entirely from the analytics layer — never needed for modelling or dashboards.</span></div></li>
+        <li><div class="gov-check">✓</div><div><b>Pseudonymization</b><span>Customer and account IDs are replaced with a keyed HMAC-SHA256 pseudonym — joinable for analysis, irreversible without the key.</span></div></li>
+        <li><div class="gov-check">✓</div><div><b>Generalization</b><span>Exact age becomes a 6-band bracket; signup date is generalized to year-month.</span></div></li>
+        <li><div class="gov-check">✓</div><div><b>Access control</b><span>PostgreSQL role separation — a read-only analyst role has zero grants on the schema holding raw identifiers.</span></div></li>
+        <li><div class="gov-check">✓</div><div><b>Human-in-the-loop</b><span>The model outputs a risk score and flag, never an automated decision — high-risk transactions route to a fraud analyst.</span></div></li>
+      </ul>
+      <div class="gov-badge-panel">
+        <div class="gov-badge-row"><span class="dot"></span><span class="k">Lawful basis</span><span class="v">Art. 6(1)(f) legitimate interest</span></div>
+        <div class="gov-badge-row"><span class="dot"></span><span class="k">Pseudonym scheme</span><span class="v mono">HMAC-SHA256, 16-hex</span></div>
+        <div class="gov-badge-row"><span class="dot"></span><span class="k">Direct identifiers in analytics layer</span><span class="v">0</span></div>
+        <div class="gov-badge-row"><span class="dot"></span><span class="k">DPIA</span><span class="v">Documented (Art. 35)</span></div>
+        <div class="gov-badge-row"><span class="dot"></span><span class="k">Full policy</span><span class="v"><a href="https://github.com/suhaskosari/european-banking-fraud-analytics/blob/master/docs/gdpr_governance.md" target="_blank" rel="noopener">gdpr_governance.md ↗</a></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-row">
+      <div class="brand"><span class="brand-mark"></span>Fraud Watch EU</div>
+      <div class="footer-links">
+        <a href="https://github.com/suhaskosari/european-banking-fraud-analytics" target="_blank" rel="noopener">Repository</a>
+        <a href="https://github.com/suhaskosari/european-banking-fraud-analytics/blob/master/docs/architecture.md" target="_blank" rel="noopener">Architecture</a>
+        <a href="https://github.com/suhaskosari/european-banking-fraud-analytics/blob/master/docs/sample_insights.md" target="_blank" rel="noopener">Sample insights</a>
+        <a href="https://github.com/suhaskosari/european-banking-fraud-analytics/blob/master/LICENSE" target="_blank" rel="noopener">MIT License</a>
+      </div>
+    </div>
+    <p class="footer-note">All customers, accounts, merchants, and transactions on this page are synthetically generated for portfolio purposes — no real personal or financial data is used anywhere in this project. Built by Suhas Kosari.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---------------- Theme toggle ---------------- */
+  var root = document.documentElement;
+  var toggle = document.getElementById('themeToggle');
+  function applyTheme(t) {
+    if (t === 'light' || t === 'dark') root.setAttribute('data-theme', t);
+    else root.removeAttribute('data-theme');
+  }
+  try {
+    var saved = localStorage.getItem('fwe-theme');
+    if (saved) applyTheme(saved);
+  } catch (e) {}
+  toggle.addEventListener('click', function () {
+    var current = root.getAttribute('data-theme');
+    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var effectiveDark = current ? current === 'dark' : prefersDark;
+    var next = effectiveDark ? 'light' : 'dark';
+    applyTheme(next);
+    try { localStorage.setItem('fwe-theme', next); } catch (e) {}
+  });
+
+  /* ---------------- SVG helpers ---------------- */
+  var NS = "http://www.w3.org/2000/svg";
+  function el(tag, attrs) {
+    var e = document.createElementNS(NS, tag);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    return e;
+  }
+  function text(x, y, str, cls, anchor) {
+    var t = el('text', { x: x, y: y, class: cls || 'chart-label' });
+    if (anchor) t.setAttribute('text-anchor', anchor);
+    t.textContent = str;
+    return t;
+  }
+  function svgTitle(node, str) {
+    var t = el('title', {});
+    t.textContent = str;
+    node.appendChild(t);
+    return node;
+  }
+
+  /* ---------------- Data (from outputs/ + powerbi/exports/) ---------------- */
+  var DATA = {
+    kpis: [
+      { label: 'Transactions analyzed', value: '274,154', sub: '6,000 customers · 8 markets', cls: '' },
+      { label: 'Confirmed fraud rate', value: '0.426%', sub: '1,169 labeled cases', cls: '' },
+      { label: 'GBM precision (fraud)', value: '90.4%', sub: 'at 96.5% recall', cls: 'accent' },
+      { label: 'GBM ROC-AUC', value: '0.9999', sub: 'time-based test split', cls: 'good' },
+      { label: 'Direct identifiers exported', value: '0', sub: 'HMAC-pseudonymized layer', cls: 'good' }
+    ],
+    tags: ['SQL','Python','Pandas','NumPy','Power BI','DAX','Statistics','Probability','Hypothesis Testing','Machine Learning','ETL','PostgreSQL','Risk Analytics','Anomaly Detection','GDPR','Data Governance','Git/GitHub'],
+    pipeline: [
+      { n: '01', t: 'Generate', c: 'generate_data.py', d: '6,000 customers, 450 merchants, ~276k transactions + 4 fraud typologies injected.' },
+      { n: '02', t: 'Clean', c: 'etl_clean_transform.py', d: 'Dedup, mixed date formats, sign errors, currency casing — every fix logged.' },
+      { n: '03', t: 'Engineer', c: 'feature_engineering.py', d: 'Leakage-safe velocity, z-score, geo-distance, device/channel risk flags.' },
+      { n: '04', t: 'Test & detect', c: 'stats_*.py / anomaly_*.py', d: '5 hypothesis tests; z-score + Isolation Forest anomaly flagging.' },
+      { n: '05', t: 'Classify', c: 'fraud_model.py', d: 'Logistic Regression vs. Gradient Boosting, time-based train/test split.' },
+      { n: '06', t: 'Govern & export', c: 'gdpr_pseudonymize.py', d: 'HMAC pseudonymization, then Power BI–ready CSV exports.' }
+    ],
+    country: [
+      { label: 'SE', value: 0.547 }, { label: 'PL', value: 0.480 }, { label: 'IE', value: 0.449 },
+      { label: 'NL', value: 0.444 }, { label: 'ES', value: 0.438 }, { label: 'IT', value: 0.421 },
+      { label: 'DE', value: 0.421 }, { label: 'FR', value: 0.332 }
+    ],
+    channel: [
+      { label: 'card-not-present', value: 1.231 }, { label: 'atm withdrawal', value: 0.437 },
+      { label: 'wire transfer', value: 0.323 }, { label: 'online', value: 0.040 },
+      { label: 'card-present', value: 0.000 }
+    ],
+    trend: [
+      ['2024-04',0.1758],['2024-05',0.0128],['2024-06',0.0523],['2024-07',0.2346],['2024-08',0.1043],
+      ['2024-09',0.2116],['2024-10',0.2653],['2024-11',0.2646],['2024-12',0.1156],['2025-01',0.0378],
+      ['2025-02',0.4363],['2025-03',0.2824],['2025-04',0.1861],['2025-05',0.3133],['2025-06',0.2826],
+      ['2025-07',0.4242],['2025-08',0.4727],['2025-09',0.3026]
+    ],
+    model: {
+      metrics: ['Precision', 'Recall', 'F1', 'ROC-AUC', 'PR-AUC'],
+      series: [
+        { name: 'Logistic Regression', cls: 'bar-2', values: [0.3622, 0.8994, 0.5164, 0.9891, 0.8951] },
+        { name: 'Gradient Boosting', cls: 'bar-1', values: [0.9043, 0.9649, 0.9336, 0.9999, 0.9886] }
+      ]
+    },
+    confusion: [
+      { k: 'True Negative', v: '67,817', cls: 'cm-tn' }, { k: 'False Positive', v: '67', cls: 'cm-fp' },
+      { k: 'False Negative', v: '23', cls: 'cm-fn' }, { k: 'True Positive', v: '633', cls: 'cm-tp' }
+    ],
+    anomaly: {
+      metrics: ['Precision', 'Recall', 'F1'],
+      series: [
+        { name: 'Amount z-score', cls: 'bar-2', values: [0.0217, 0.1993, 0.0391] },
+        { name: 'Isolation Forest', cls: 'bar-1', values: [0.3136, 0.7357, 0.4398] }
+      ]
+    },
+    findings: [
+      { name: 'Transaction amount', hyp: 'Fraud and legitimate transactions share the same amount distribution.', stat: 'Mann-Whitney U · p < 0.001 · r = 0.40', note: 'Median fraud €3.01 vs. legit €61.33 — card-testing floods the fraud class with tiny amounts.' },
+      { name: 'Transaction country', hyp: 'Fraud incidence is independent of transaction country.', stat: "Chi-square · p = 0.0045 · Cramér's V = 0.009", note: 'Statistically significant but a small effect — country alone is a weak predictor.' },
+      { name: 'Transaction channel', hyp: 'Fraud incidence is independent of channel.', stat: "Chi-square · p < 0.001 · Cramér's V = 0.080", note: 'Card-not-present carries 1.23% fraud vs. 0.00% for card-present — the strongest categorical split.' },
+      { name: 'Cross-border transactions', hyp: 'Cross-border and domestic transactions have equal fraud rates.', stat: "Two-proportion z-test · p < 0.001 · Cohen's h = 0.087", note: '0.76% cross-border vs. 0.19% domestic — cross-border is ~4x riskier.' },
+      { name: '1-hour transaction velocity', hyp: 'Fraud and legitimate transactions have equal 1h velocity.', stat: 'Mann-Whitney U (one-sided) · p < 0.001', note: 'Mean velocity 3.89 (fraud) vs. 0.0075 (legit) — the single strongest behavioural signal.' }
+    ]
+  };
+
+  /* ---------------- Render: KPIs & tags ---------------- */
+  var kpiGrid = document.getElementById('kpiGrid');
+  DATA.kpis.forEach(function (k) {
+    var d = document.createElement('div'); d.className = 'kpi';
+    d.innerHTML = '<div class="kpi-label">' + k.label + '</div>' +
+      '<div class="kpi-value tabular ' + k.cls + '">' + k.value + '</div>' +
+      '<div class="kpi-sub">' + k.sub + '</div>';
+    kpiGrid.appendChild(d);
+  });
+  var tagRow = document.getElementById('tagRow');
+  DATA.tags.forEach(function (t) {
+    var s = document.createElement('span'); s.className = 'tag'; s.textContent = t;
+    tagRow.appendChild(s);
+  });
+
+  /* ---------------- Render: pipeline ---------------- */
+  var pg = document.getElementById('pipelineGrid');
+  DATA.pipeline.forEach(function (p) {
+    var d = document.createElement('div'); d.className = 'pstep';
+    d.innerHTML = '<span class="pnum">' + p.n + '</span><h3>' + p.t + '</h3>' +
+      '<p><code>' + p.c + '</code></p><p>' + p.d + '</p>';
+    pg.appendChild(d);
+  });
+
+  /* ---------------- Chart: horizontal bar ---------------- */
+  function horizontalBar(svgId, data, opts) {
+    opts = opts || {};
+    var svg = document.getElementById(svgId);
+    var width = 560, rowH = 34, labelW = 96, valueW = 66, gapTop = 4;
+    var chartW = width - labelW - valueW;
+    var height = data.length * rowH + gapTop;
+    svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
+    var max = opts.max || Math.max.apply(null, data.map(function (d) { return d.value; })) * 1.08;
+    data.forEach(function (d, i) {
+      var y = gapTop + i * rowH;
+      var barW = Math.max(d.value > 0 ? 3 : 0, (d.value / max) * chartW);
+      svg.appendChild(text(labelW - 10, y + rowH / 2 + 4, d.label, 'chart-label', 'end'));
+      svg.appendChild(el('rect', { x: labelW, y: y + 8, width: chartW, height: rowH - 16, rx: 4, class: 'bar-track' }));
+      var bar = el('rect', { x: labelW, y: y + 8, width: barW, height: rowH - 16, rx: 4, class: opts.cls || 'bar-1' });
+      svgTitle(bar, d.label + ': ' + (opts.fmt ? opts.fmt(d.value) : d.value));
+      svg.appendChild(bar);
+      svg.appendChild(text(labelW + barW + 8, y + rowH / 2 + 4, opts.fmt ? opts.fmt(d.value) : d.value, 'chart-value'));
+    });
+  }
+  horizontalBar('chartCountry', DATA.country, { cls: 'bar-1', fmt: function (v) { return v.toFixed(3) + '%'; } });
+  horizontalBar('chartChannel', DATA.channel, { cls: 'bar-2', fmt: function (v) { return v.toFixed(3) + '%'; } });
+
+  /* ---------------- Chart: grouped bar ---------------- */
+  function groupedBar(svgId, legendId, spec, opts) {
+    opts = opts || {};
+    var svg = document.getElementById(svgId);
+    var width = 1120, height = 220, padL = 40, padB = 26, padT = 10, padR = 10;
+    var chartW = width - padL - padR, chartH = height - padT - padB;
+    svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
+    var n = spec.metrics.length, s = spec.series.length;
+    var groupW = chartW / n, barGap = 6, barW = (groupW - barGap * (s + 1)) / s;
+    var max = opts.max || 1.0;
+    // gridlines + axis labels
+    [0, 0.25, 0.5, 0.75, 1].forEach(function (f) {
+      var y = padT + chartH - f * chartH;
+      svg.appendChild(el('line', { x1: padL, x2: width - padR, y1: y, y2: y, class: 'gridline' }));
+      svg.appendChild(text(padL - 8, y + 3, (f * max).toFixed(1), 'chart-label', 'end'));
+    });
+    svg.appendChild(el('line', { x1: padL, x2: width - padR, y1: padT + chartH, y2: padT + chartH, class: 'axis-line' }));
+    spec.metrics.forEach(function (m, gi) {
+      var gx = padL + gi * groupW;
+      svg.appendChild(text(gx + groupW / 2, height - 6, m, 'chart-label', 'middle'));
+      spec.series.forEach(function (ser, si) {
+        var v = ser.values[gi];
+        var bh = (v / max) * chartH;
+        var bx = gx + barGap + si * (barW + barGap);
+        var by = padT + chartH - bh;
+        var bar = el('rect', { x: bx, y: by, width: barW, height: Math.max(1, bh), rx: 3, class: ser.cls });
+        svgTitle(bar, ser.name + ' · ' + m + ': ' + v.toFixed(4));
+        svg.appendChild(bar);
+      });
+    });
+    if (legendId) {
+      var lg = document.getElementById(legendId);
+      spec.series.forEach(function (ser) {
+        var item = document.createElement('div'); item.className = 'legend-item';
+        var color = ser.cls === 'bar-1' ? 'var(--series-1)' : ser.cls === 'bar-2' ? 'var(--series-2)' : 'var(--series-3)';
+        item.innerHTML = '<span class="legend-swatch" style="background:' + color + '"></span>' + ser.name;
+        lg.appendChild(item);
+      });
+    }
+  }
+  groupedBar('chartModel', 'legendModel', DATA.model, { max: 1.0 });
+  groupedBar('chartAnomaly', 'legendAnomaly', DATA.anomaly, { max: 1.0 });
+
+  /* ---------------- Chart: line ---------------- */
+  function lineChart(svgId, series, opts) {
+    opts = opts || {};
+    var svg = document.getElementById(svgId);
+    var width = 1120, height = 260, padL = 40, padB = 30, padT = 16, padR = 16;
+    var chartW = width - padL - padR, chartH = height - padT - padB;
+    svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
+    var values = series.map(function (d) { return d[1]; });
+    var max = opts.max || Math.max.apply(null, values) * 1.15;
+    var n = series.length;
+    var stepX = chartW / (n - 1);
+
+    [0, 0.25, 0.5, 0.75, 1].forEach(function (f) {
+      var y = padT + chartH - f * chartH;
+      svg.appendChild(el('line', { x1: padL, x2: width - padR, y1: y, y2: y, class: 'gridline' }));
+      svg.appendChild(text(padL - 8, y + 3, f === 0 ? '0%' : (f * max).toFixed(2) + '%', 'chart-label', 'end'));
+    });
+    svg.appendChild(el('line', { x1: padL, x2: width - padR, y1: padT + chartH, y2: padT + chartH, class: 'axis-line' }));
+
+    var pts = series.map(function (d, i) {
+      var x = padL + i * stepX;
+      var y = padT + chartH - (d[1] / max) * chartH;
+      return [x, y];
+    });
+    var linePath = 'M ' + pts.map(function (p) { return p[0].toFixed(1) + ' ' + p[1].toFixed(1); }).join(' L ');
+    var areaPath = linePath + ' L ' + pts[pts.length - 1][0].toFixed(1) + ' ' + (padT + chartH) +
+      ' L ' + pts[0][0].toFixed(1) + ' ' + (padT + chartH) + ' Z';
+    svg.appendChild(el('path', { d: areaPath, class: 'area-path' }));
+    svg.appendChild(el('path', { d: linePath, class: 'line-path' }));
+
+    series.forEach(function (d, i) {
+      var dot = el('circle', { cx: pts[i][0], cy: pts[i][1], r: 3.2, class: 'line-dot' });
+      svgTitle(dot, d[0] + ': ' + d[1].toFixed(3) + '%');
+      svg.appendChild(dot);
+      if (i % 3 === 0 || i === n - 1) {
+        svg.appendChild(text(pts[i][0], height - 6, d[0].slice(2), 'chart-label', 'middle'));
+      }
+    });
+  }
+  lineChart('chartTrend', DATA.trend);
+
+  /* ---------------- Render: confusion matrix ---------------- */
+  var cmGrid = document.getElementById('cmGrid');
+  DATA.confusion.forEach(function (c) {
+    var d = document.createElement('div'); d.className = 'cm-cell ' + c.cls;
+    d.innerHTML = '<div class="cm-v tabular">' + c.v + '</div><div class="cm-k">' + c.k + '</div>';
+    cmGrid.appendChild(d);
+  });
+
+  /* ---------------- Render: findings ---------------- */
+  var fg = document.getElementById('findingsGrid');
+  DATA.findings.forEach(function (f) {
+    var d = document.createElement('div'); d.className = 'finding';
+    d.innerHTML =
+      '<div class="finding-top"><div class="finding-name">' + f.name + '</div><span class="pill pill-reject">REJECT H0</span></div>' +
+      '<div class="finding-hyp">H0: ' + f.hyp + '</div>' +
+      '<div class="finding-stat">' + f.stat + '</div>' +
+      '<div class="finding-hyp">' + f.note + '</div>';
+    fg.appendChild(d);
+  });
+})();
+</script>
+</body>
+</html>
