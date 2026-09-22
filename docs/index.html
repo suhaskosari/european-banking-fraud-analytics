@@ -135,7 +135,7 @@
     border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
     margin-top: 30px;
   }
-  .kpi { background: var(--surface); padding: 16px 18px; }
+  .kpi { background: var(--surface); padding: 16px 18px; min-width: 0; }
   .kpi-label { font-size: 11.5px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
   .kpi-value { font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 25px; margin-top: 6px; }
   .kpi-sub { font-size: 12px; color: var(--text-secondary); margin-top: 3px; }
@@ -156,7 +156,7 @@
 
   .panel {
     background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
-    padding: 20px 20px 16px;
+    padding: 20px 20px 16px; min-width: 0;
   }
   .panel-title { font-size: 14px; font-weight: 600; }
   .panel-caption { font-size: 12px; color: var(--text-muted); margin-top: 3px; margin-bottom: 14px; }
@@ -185,20 +185,20 @@
   @media (max-width: 900px) { .pipeline { grid-template-columns: repeat(2, 1fr); } }
   .pstep {
     background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
-    padding: 14px 14px 12px; position: relative;
+    padding: 14px 14px 12px; position: relative; min-width: 0;
   }
   .pstep .pnum {
     font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--accent);
     background: var(--accent-wash); display: inline-block; padding: 1px 7px; border-radius: 5px; margin-bottom: 9px;
   }
   .pstep h3 { font-size: 13.5px; }
-  .pstep p { font-size: 12px; color: var(--text-secondary); margin: 5px 0 0; }
-  .pstep code { font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--text-muted); }
+  .pstep p { font-size: 12px; color: var(--text-secondary); margin: 5px 0 0; overflow-wrap: break-word; }
+  .pstep code { font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--text-muted); overflow-wrap: break-word; }
 
   /* ---------- Findings cards ---------- */
   .finding {
     background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
-    padding: 16px 18px; display: flex; flex-direction: column; gap: 8px;
+    padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; min-width: 0;
   }
   .finding-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
   .finding-name { font-size: 13px; font-weight: 600; }
@@ -255,6 +255,9 @@
   @media (max-width: 640px) {
     .hero { padding-block: 34px 24px; }
     section { padding-block: 34px; }
+    .nav-links a.textlink { display: none; }
+    .nav-links { gap: 8px; }
+    .btn { padding: 6px 10px; font-size: 12px; }
   }
 </style>
 </head>
@@ -537,7 +540,7 @@
   function horizontalBar(svgId, data, opts) {
     opts = opts || {};
     var svg = document.getElementById(svgId);
-    var width = 560, rowH = 34, labelW = 96, valueW = 66, gapTop = 4;
+    var width = 560, rowH = 34, labelW = opts.labelW || 96, valueW = 66, gapTop = 4;
     var chartW = width - labelW - valueW;
     var height = data.length * rowH + gapTop;
     svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
@@ -554,7 +557,7 @@
     });
   }
   horizontalBar('chartCountry', DATA.country, { cls: 'bar-1', fmt: function (v) { return v.toFixed(3) + '%'; } });
-  horizontalBar('chartChannel', DATA.channel, { cls: 'bar-2', fmt: function (v) { return v.toFixed(3) + '%'; } });
+  horizontalBar('chartChannel', DATA.channel, { cls: 'bar-2', labelW: 140, fmt: function (v) { return v.toFixed(3) + '%'; } });
 
   /* ---------------- Chart: grouped bar ---------------- */
   function groupedBar(svgId, legendId, spec, opts) {
